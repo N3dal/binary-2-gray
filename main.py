@@ -32,10 +32,17 @@ def clear():
 clear()
 
 
-def bin2gray(code: str = None):
+def bin2gray(code: object = None):
     """convert binary code to gray code."""
 
     # guard conditions.
+
+    if type(code) != int:
+        return -1
+    else:
+        # convert the integer number to bin.
+        code = bin(code)[2:]
+
     if not code:
         return -1
 
@@ -62,8 +69,8 @@ def bin2gray(code: str = None):
 
 
 def main():
-    print("110111")
-    print(bin2gray("110111"))
+    print(bin(403)[2:])
+    print(bin2gray(403))
 
 
 if __name__ == "__main__":
