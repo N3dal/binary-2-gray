@@ -86,7 +86,7 @@ def bin2gray(code: object = None, code_type: str = "b"):
     return "".join(gray_code)
 
 
-def gray2bin(code: object = None):
+def gray2bin(gray_code: object = None):
     """convert gray code to bin number/code.
     this will convert only the gray-represention of the binary,
     numbers to the normal-binary number representation.
@@ -100,30 +100,30 @@ def gray2bin(code: object = None):
 
     # guard conditions.
 
-    if not code:
+    if not gray_code:
         # if the object is empty or none.
         return -1
 
-    if type(code) != str:
+    if type(gray_code) != str:
         # if the type isn't string then isn't bin number.
         return -1
 
-    if [num for num in code if num not in ('0', '1')]:
+    if [num for num in gray_code if num not in ('0', '1')]:
         # if code contain non binary num for example string or int.
         return -1
 
-    bin_code_list = []
+    binary_number = []
 
     # add the first number from the gray code.
-    bin_code_list.append(code[0])
+    binary_number.append(gray_code[0])
 
-    for num in code[1:]:
+    for num in gray_code[1:]:
 
-        temp_value = str(int(num) ^ int(bin_code_list[-1]))
+        temp_value = str(int(num) ^ int(binary_number[-1]))
 
-        bin_code_list.append(temp_value)
+        binary_number.append(temp_value)
 
-    return "".join(bin_code_list)
+    return "".join(binary_number)
 
 
 def main():
