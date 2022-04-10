@@ -112,20 +112,18 @@ def gray2bin(code: object = None):
         # if code contain non binary num for example string or int.
         return -1
 
-    gray_code_list = [int(char) for char in code]
-
     bin_code_list = []
 
     # add the first number from the gray code.
-    bin_code_list.append(gray_code_list[0])
+    bin_code_list.append(code[0])
 
-    for num in gray_code_list[1:]:
+    for num in code[1:]:
 
-        temp_value = num ^ bin_code_list[-1]
+        temp_value = str(int(num) ^ int(bin_code_list[-1]))
 
         bin_code_list.append(temp_value)
 
-    return "".join(str(num) for num in bin_code_list)
+    return "".join(bin_code_list)
 
 
 def main():
