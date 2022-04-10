@@ -86,9 +86,50 @@ def bin2gray(code: object = None, code_type: str = "b"):
     return "".join(gray_code)
 
 
+def gray2bin(code: object = None, code_type: str = "b"):
+    """convert gray code to bin number/code.
+    code its the bin number or the int or the bin/int as string.
+    code type are:
+    'i' => integer.
+    'b' => binary.
+    """
+
+    # guard conditions.
+
+    if not code:
+        # if the object is empty or none.
+        return -1
+
+    if type(code) is str:
+        # if the object is a string, or any type else.
+        if code_type == "b":
+            if [num for num in code if num not in ('0', '1')]:
+                # if code contain non binary num for example string or int.
+                return -1
+
+        elif code_type == "i":
+            try:
+                code = bin(int(code))[2:]
+
+            except ValueError:
+                return -1
+
+        else:
+            return -1
+
+    elif type(code) is int:
+        # convert the integer number to bin.
+        code = bin(code)[2:]
+
+
 def main():
-    print(bin(403)[2:])
-    print(bin2gray("1234", "i"))
+
+    INT_NUMBER = 333
+    bin_number = bin(INT_NUMBER)[2:]
+
+    print(bin_number)
+    print('#'*8)
+    print(bin2gray(bin_number, 'b'))
 
 
 if __name__ == "__main__":
