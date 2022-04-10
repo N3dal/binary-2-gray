@@ -38,7 +38,10 @@ def bin2gray(code: object = None):
     # guard conditions.
 
     if type(code) != int:
-        return -1
+        try:
+            code = bin(int(code))[2:]
+        except ValueError:
+            return -1
     else:
         # convert the integer number to bin.
         code = bin(code)[2:]
@@ -70,7 +73,7 @@ def bin2gray(code: object = None):
 
 def main():
     print(bin(403)[2:])
-    print(bin2gray(403))
+    print(bin2gray("403.3"))
 
 
 if __name__ == "__main__":
