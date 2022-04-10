@@ -112,19 +112,35 @@ def gray2bin(code: object = None):
         # if code contain non binary num for example string or int.
         return -1
 
+    gray_code_list = [int(char) for char in code]
+
+    bin_code_list = []
+
+    # add the first number from the gray code.
+    bin_code_list.append(gray_code_list[0])
+
+    for num in gray_code_list[1:]:
+
+        temp_value = num ^ bin_code_list[-1]
+
+        bin_code_list.append(temp_value)
+
+    return "".join(str(num) for num in bin_code_list)
+
 
 def main():
 
-    INT_NUMBER = 333
-    bin_number1 = bin(INT_NUMBER)[2:]
-    gray_number = bin2gray(bin_number1)
-    bin_number2 = gray2bin("")
+    INT_NUMBER = 32134
+    base_binary_number = bin(INT_NUMBER)[2:]
+    gray_number = bin2gray(base_binary_number)
+    bin_number = gray2bin(gray_number)
 
-    print(bin_number1)
+    print(base_binary_number)
     print('#'*10)
     print(gray_number)
     print('#'*10)
-    print(bin_number2)
+    print(bin_number)
+    print(base_binary_number == bin_number)
 
 
 if __name__ == "__main__":
