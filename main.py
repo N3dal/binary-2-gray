@@ -48,6 +48,11 @@ def bin2gray(code: object = None, code_type: str = "b"):
 
     if type(code) is str:
         # if the object is a string, or any type else.
+
+        if code.startswith('0b'):
+            # make sure to remove binary prefix.
+            code = code[2:]
+
         if code_type == "b":
             if any(num not in ('0', '1') for num in code):
                 # if code contain non binary num for example string or int.
@@ -142,7 +147,7 @@ def main():
     # print(bin_number)
     # print(base_binary_number == bin_number)
 
-    b = bin2gray("1111")
+    b = bin2gray("0b1111")
 
     print(b)
 
