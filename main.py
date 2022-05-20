@@ -43,13 +43,13 @@ def bin2gray(code: object = None, code_type: str = "b"):
     # guard conditions.
 
     if not code:
-        # if the object is empty or none.
+        # if the object is empty or 'None'.
         return -1
 
     if type(code) is str:
         # if the object is a string, or any type else.
         if code_type == "b":
-            if [num for num in code if num not in ('0', '1')]:
+            if any(num not in ('0', '1') for num in code):
                 # if code contain non binary num for example string or int.
                 return -1
 
@@ -130,17 +130,21 @@ def gray2bin(gray_code: object = None):
 
 def main():
 
-    INT_NUMBER = 32134
-    base_binary_number = bin(INT_NUMBER)[2:]
-    gray_number = bin2gray(base_binary_number)
-    bin_number = gray2bin(gray_number)
+    # INT_NUMBER = 32134
+    # base_binary_number = bin(INT_NUMBER)[2:]
+    # gray_number = bin2gray(base_binary_number)
+    # bin_number = gray2bin(gray_number)
 
-    print(base_binary_number)
-    print('#'*10)
-    print(gray_number)
-    print('#'*10)
-    print(bin_number)
-    print(base_binary_number == bin_number)
+    # print(base_binary_number)
+    # print('#'*10)
+    # print(gray_number)
+    # print('#'*10)
+    # print(bin_number)
+    # print(base_binary_number == bin_number)
+
+    b = bin2gray("1111")
+
+    print(b)
 
 
 if __name__ == "__main__":
