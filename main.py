@@ -94,7 +94,7 @@ def bin2gray(code: object = None, code_type: str = "b"):
 
 def gray2bin(gray_code: object = None):
     """convert gray code to bin number/code.
-    this will convert only the gray-represention of the binary,
+    this will convert only the gray-representation of the binary,
     numbers to the normal-binary number representation.
     so the input must be an binary number as string.
     and the output will be an binary number as string.
@@ -106,7 +106,7 @@ def gray2bin(gray_code: object = None):
 
     # guard conditions.
 
-    if not gray_code:
+    if len(gray_code) == 0:
         # if the object is empty or none.
         return -1
 
@@ -114,7 +114,7 @@ def gray2bin(gray_code: object = None):
         # if the type isn't string then isn't bin number.
         return -1
 
-    if [num for num in gray_code if num not in ('0', '1')]:
+    if any(num not in ('0', '1') for num in gray_code):
         # if code contain non binary num for example string or int.
         return -1
 
@@ -134,23 +134,20 @@ def gray2bin(gray_code: object = None):
 
 def main():
 
-    # INT_NUMBER = 32134
-    # base_binary_number = bin(INT_NUMBER)[2:]
-    # gray_number = bin2gray(base_binary_number)
-    # bin_number = gray2bin(gray_number)
+    INT_NUMBER = 32134
+    base_binary_number = bin(INT_NUMBER)[2:]
+    gray_number = bin2gray(base_binary_number)
+    bin_number = gray2bin(gray_number)
 
-    # print(base_binary_number)
-    # print('#'*10)
-    # print(gray_number)
-    # print('#'*10)
-    # print(bin_number)
-    # print(base_binary_number == bin_number)
+    print(base_binary_number)
+    print('#'*10)
+    print(gray_number)
+    print('#'*10)
+    print(bin_number)
+    print(base_binary_number == bin_number)
 
-    b = bin2gray(33)
-    c = bin2gray("33", "i")
 
-    print(b)
-    print(c)
+]
 
 
 if __name__ == "__main__":
