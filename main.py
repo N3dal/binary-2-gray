@@ -33,8 +33,10 @@ clear()
 
 
 def bin2gray(code: object = None, code_type: str = "b"):
-    """convert binary code to gray code.
-    code type are:
+    """convert binary code to gray code,
+    this function can accept either integer type,
+    or binary type as string, so we need to specify,
+    the type that we will pass as follow:
     i => integer.
     b => binary."""
 
