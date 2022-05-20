@@ -81,7 +81,6 @@ def bin2gray(code: object = None, code_type: str = "b"):
 
     gray_code.append((code[0]))
 
-    # print(gray_code)
     for index, item in enumerate(code[1:], 1):
         # XOR operation act like add operation,
         # for binary.
@@ -147,9 +146,11 @@ def main():
     # print(bin_number)
     # print(base_binary_number == bin_number)
 
-    b = bin2gray("0b1111")
+    b = bin2gray(33)
+    c = bin2gray("33", "i")
 
     print(b)
+    print(c)
 
 
 if __name__ == "__main__":
